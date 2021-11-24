@@ -1,1 +1,3 @@
-export class CreateWechatDto {}
+export class CreateWechatDto {
+  name: string;
+}
