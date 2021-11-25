@@ -976,7 +976,7 @@
     tslib "2.3.1"
     uuid "8.3.2"
 
-"@nestjs/mapped-types@*":
+"@nestjs/mapped-types@*", "@nestjs/mapped-types@1.0.0":
   version "1.0.0"
   resolved "https://registry.nlark.com/@nestjs/mapped-types/download/@nestjs/mapped-types-1.0.0.tgz"
   integrity sha1-UqBEF5X22oFEo1lw0+vBkoHzHP0=
@@ -1002,6 +1002,15 @@
     fs-extra "10.0.0"
     jsonc-parser "3.0.0"
     pluralize "8.0.0"
+
+"@nestjs/swagger@^5.1.5":
+  version "5.1.5"
+  resolved "https://registry.npmmirror.com/@nestjs/swagger/download/@nestjs/swagger-5.1.5.tgz#ee565e98b6d05b7a5d90c9f15b4d72586b6f77cf"
+  integrity sha512-jvsgciVEFcYVVEuLdNAmgJDpFSQzIoukg+Ovz1vJ97OeCprx0sVhmocn13nCl/dEwIkwoM3eby9OiaccX0A+3A==
+  dependencies:
+    "@nestjs/mapped-types" "1.0.0"
+    lodash "4.17.21"
+    path-to-regexp "3.2.0"
 
 "@nestjs/testing@^8.0.0":
   version "8.2.3"
@@ -4725,7 +4734,7 @@ lodash.truncate@^4.4.2:
   resolved "https://registry.npm.taobao.org/lodash.truncate/download/lodash.truncate-4.4.2.tgz"
   integrity sha1-WjUNoLERO4N+z//VgSy+WNbq4ZM=
 
-lodash@^4.17.19, lodash@^4.17.21, lodash@^4.17.4, lodash@^4.7.0:
+lodash@4.17.21, lodash@^4.17.19, lodash@^4.17.21, lodash@^4.17.4, lodash@^4.7.0:
   version "4.17.21"
   resolved "https://registry.nlark.com/lodash/download/lodash-4.17.21.tgz?cache=0&sync_timestamp=1624543041613&other_urls=https%3A%2F%2Fregistry.nlark.com%2Flodash%2Fdownload%2Flodash-4.17.21.tgz"
   integrity sha1-Z5WRxWTDv/quhFTPCz3zcMPWkRw=
@@ -5623,6 +5632,14 @@ rechoir@^0.6.2:
   dependencies:
     resolve "^1.1.6"
 
+redux-observable@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.nlark.com/redux-observable/download/redux-observable-2.0.0.tgz#4358bef2e924723a8b1ad0e835ccebb1612a6b9a"
+  integrity sha1-Q1i+8ukkcjqLGtDoNczrsWEqa5o=
+  dependencies:
+    rxjs "^7.0.0"
+    tslib "~2.1.0"
+
 redux@^4.1.2:
   version "4.1.2"
   resolved "https://registry.npmjs.org/redux/-/redux-4.1.2.tgz#140f35426d99bb4729af760afcf79eaaac407104"
@@ -5760,7 +5777,7 @@ rx-queue@^0.12.6:
   resolved "https://registry.npmjs.org/rx-queue/-/rx-queue-0.12.6.tgz#3346cf08cb4ba10796be13bd735763cd5a602fbc"
   integrity sha512-4He+My4hJBNksJwfLLBE30A3NSPzaTiToyFBShH+ae27sqktJ3JMtxVUzxnc2M8xQokzs3WzCoIzkXaHu8EULw==
 
-rxjs@*, rxjs@^7.2.0, rxjs@^7.4.0:
+rxjs@*, rxjs@^7.0.0, rxjs@^7.2.0, rxjs@^7.4.0:
   version "7.4.0"
   resolved "https://registry.npmmirror.com/rxjs/download/rxjs-7.4.0.tgz?cache=0&sync_timestamp=1633554235070&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2Frxjs%2Fdownload%2Frxjs-7.4.0.tgz"
   integrity sha1-oSpE1+6/AW9f8kQbh/KMmlHOvGg=
@@ -6150,6 +6167,18 @@ supports-hyperlinks@^2.0.0:
   dependencies:
     has-flag "^4.0.0"
     supports-color "^7.0.0"
+
+swagger-ui-dist@^3.18.1:
+  version "3.52.5"
+  resolved "https://registry.npmmirror.com/swagger-ui-dist/download/swagger-ui-dist-3.52.5.tgz#9aa8101a2be751f5145195b9e048bc21b12fac60"
+  integrity sha1-mqgQGivnUfUUUZW54Ei8IbEvrGA=
+
+swagger-ui-express@^4.1.6:
+  version "4.1.6"
+  resolved "https://registry.npm.taobao.org/swagger-ui-express/download/swagger-ui-express-4.1.6.tgz#682294af3d5c70f74a1fa4d6a9b503a9ee55ea82"
+  integrity sha1-aCKUrz1ccPdKH6TWqbUDqe5V6oI=
+  dependencies:
+    swagger-ui-dist "^3.18.1"
 
 symbol-observable@4.0.0:
   version "4.0.0"
