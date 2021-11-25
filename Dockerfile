@@ -5,7 +5,7 @@ ARG NODE_ENV=production
 ENV NODE_ENV=${NODE_ENV}
 
 # 设置阿里云源
-RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories
+# RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories
 
 # 修改时区
 RUN apk --update add tzdata \
@@ -21,7 +21,8 @@ COPY . /app
 
 WORKDIR /app
 
-RUN npm config set registry https://registry.npm.taobao.org
+# 设置npm淘宝源
+# RUN npm config set registry https://registry.npm.taobao.org
 
 RUN  npm install && npm build
 

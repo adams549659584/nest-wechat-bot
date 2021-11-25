@@ -56,7 +56,7 @@ function initBot(botName: string) {
   bot.on('message', async message => {
     log.info('StarterBot ', message.toString());
     if (!message.self() && message.type() === PuppetTypes.Message.Text) {
-      const ownthinkUserId = message.talker().id || message.talker().name() || '';
+      const ownthinkUserId = encodeURIComponent(message.talker().id || message.talker().name() || '');
       const ownthinkBotResText = await ownthinkBot(ownthinkUserId, message.text());
       await message.say(ownthinkBotResText);
     }
