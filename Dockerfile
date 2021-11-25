@@ -19,13 +19,15 @@ FROM base as build
 
 WORKDIR /app
 
+RUN npm i -g @nestjs/cli
+
 COPY package-lock.json /app
 COPY package.json /app
 
 # 设置npm淘宝源
 # RUN npm config set registry https://registry.npm.taobao.org
 
-RUN npm install -–force
+RUN npm install
 
 COPY . /app
 
