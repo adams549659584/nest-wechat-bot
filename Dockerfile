@@ -24,7 +24,7 @@ COPY package.json /app
 # 设置npm淘宝源
 # RUN npm config set registry https://registry.npm.taobao.org
 
-RUN npm install
+RUN npm install -–force
 
 COPY . /app
 
