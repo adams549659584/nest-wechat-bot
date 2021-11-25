@@ -4,10 +4,8 @@ import { UpdateWechatDto } from './dto/update-wechat.dto';
 import { Contact, Message, ScanStatus, WechatyBuilder, log } from 'wechaty';
 import { WechatyInterface } from 'wechaty/impls';
 import { QRCodeWechatDto } from './dto/qrcode-wechat.dto';
-
-// const BOT_LIST: {
-//   [key in string]: WechatyInterface;
-// } = {};
+import fetch from 'node-fetch';
+import HttpHelper from 'src/common/helpers/HttpHelper';
 
 const BOT_MAP = new Map<
   string,
@@ -16,6 +14,28 @@ const BOT_MAP = new Map<
     bot?: WechatyInterface;
   }
 >();
+
+async function ownthinkBot(userid: string, msg: string) {
+  const url = `https://api.ownthink.com/bot`;
+  const body = {
+    appid: '56e5c35584124862eb9da2a94f9d81d2',
+    userid,
+    spoken: msg,
+  };
+  const res = await HttpHelper.post<{
+    message: string;
+    data: {
+      type: number;
+      text: string;
+      info: any;
+    };
+  }>(url, body);
+  if (res.message === 'success' && res.data.type === 5000) {
+    return res.data.text;
+  } else {
+    return res.message;
+  }
+}
 
 function initBot(botName: string) {
   const botMap = BOT_MAP.get(botName);
@@ -34,9 +54,8 @@ function initBot(botName: string) {
   bot.on('message', async message => {
     log.info('StarterBot', message.toString());
     if (!message.self() && typeof message.text() === 'string') {
-      // const ownthinkUserId = message.from()?.id || message.from()?.name() || '';
-      // const ownthinkBotResText = await ownthinkBot(ownthinkUserId, message.text());
-      const ownthinkBotResText = message.from().name();
+      const ownthinkUserId = message.from()?.id || message.from()?.name() || '';
+      const ownthinkBotResText = await ownthinkBot(ownthinkUserId, message.text());
       await message.say(ownthinkBotResText);
     }
   });
