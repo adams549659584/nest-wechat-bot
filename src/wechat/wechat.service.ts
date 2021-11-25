@@ -6,6 +6,7 @@ import { WechatyInterface } from 'wechaty/impls';
 import { QRCodeWechatDto } from './dto/qrcode-wechat.dto';
 import fetch from 'node-fetch';
 import HttpHelper from 'src/common/helpers/HttpHelper';
+import { types as PuppetTypes } from 'wechaty-puppet';
 
 const BOT_MAP = new Map<
   string,
@@ -26,12 +27,13 @@ async function ownthinkBot(userid: string, msg: string) {
     message: string;
     data: {
       type: number;
-      text: string;
-      info: any;
+      info: {
+        text: string;
+      };
     };
   }>(url, body);
   if (res.message === 'success' && res.data.type === 5000) {
-    return res.data.text;
+    return res.data.info.text;
   } else {
     return res.message;
   }
@@ -52,9 +54,9 @@ function initBot(botName: string) {
     log.info('StarterBot', '%s login', user);
   });
   bot.on('message', async message => {
-    log.info('StarterBot', message.toString());
-    if (!message.self() && typeof message.text() === 'string') {
-      const ownthinkUserId = message.from()?.id || message.from()?.name() || '';
+    log.info('StarterBot ', message.toString());
+    if (!message.self() && message.type() === PuppetTypes.Message.Text) {
+      const ownthinkUserId = message.talker().id || message.talker().name() || '';
       const ownthinkBotResText = await ownthinkBot(ownthinkUserId, message.text());
       await message.say(ownthinkBotResText);
     }
