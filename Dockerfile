@@ -3,6 +3,7 @@ FROM adams549659584/wechaty-base:node16.13.0-alpine3.14 as base
 # development production
 ARG NODE_ENV=production
 ENV NODE_ENV=${NODE_ENV}
+ENV SHELL /bin/bash
 
 # 设置阿里云源
 # RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories
