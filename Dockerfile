@@ -17,14 +17,18 @@ RUN apk --update add tzdata \
 # 使用基础镜像 装依赖阶段
 FROM base as build
 
-COPY . /app
-
 WORKDIR /app
+
+COPY package.json /app
 
 # 设置npm淘宝源
 # RUN npm config set registry https://registry.npm.taobao.org
 
-RUN  npm install && npm build
+RUN npm install
+
+COPY . /app
+
+RUN npm run build
 
 # 复制dist
 FROM base
