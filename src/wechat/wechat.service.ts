@@ -4,7 +4,6 @@ import { UpdateWechatDto } from './dto/update-wechat.dto';
 import { Contact, Message, ScanStatus, WechatyBuilder, log } from 'wechaty';
 import { WechatyInterface } from 'wechaty/impls';
 import { QRCodeWechatDto } from './dto/qrcode-wechat.dto';
-import fetch from 'node-fetch';
 import HttpHelper from 'src/common/helpers/HttpHelper';
 import { types as PuppetTypes } from 'wechaty-puppet';
 
@@ -69,7 +68,7 @@ function initBot(botName: string) {
     })
     .catch((e: Error) => {
       log.error('StarterBot', e);
-      return `机器人(${botName})启动出错啦：` + e.message;
+      return `机器人(${botName})启动出错啦！~`;
     });
 }
 
